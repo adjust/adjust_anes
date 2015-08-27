@@ -2,7 +2,6 @@
 *.swf
 *.swcout
 out
-build
 *.ane
 gen
 .idea
