@@ -41,17 +41,17 @@ content can be read in [here in Table 1][google_play_services_lib_parts].
 
 #### 2. Choose your own google-play-services.jar
 
-You can choose **google-play-services.jar** of your own which you want to integrate in ANE file. 
-google-play-services.jar is located in `<REPO_ROOT_FOLDER>/build/android` folder.
+You can choose **google-play-services.jar** of your own which you want to integrate in ANE file. It is located in
+`<REPO_ROOT_FOLDER>/build/android` folder.
 
-`google-play-services.jar` is part of your Android SDK folder. You can find it in `ANDROID_SDK_FOLDER/extras/google/google_play_services/libproject/google_play_services_lib/libs` folder.
+Original **google-play-services.jar** is part of your Android SDK folder. You can find it in `ANDROID_SDK_FOLDER/extras/google/google_play_services/libproject/google_play_services_lib/libs` folder.
 
 ![][google_play_services_jar]
 
 This jar contains full version of Google Play Services library with all its containing parts. By integrating this
 jar file in your ANE, you will have access to all features of the library and it will cause increasing in size of
 your resulting ANE. You can choose (like we did) to use just subset of library functionalities. In order to make
-this happen, you should "strip" your google-play-services.jar and remove unnecessary parts of it.
+this happen, you should "strip" your **google-play-services.jar** and remove unnecessary parts of it.
 
 In order to do that, you can use script made by `dextorer` which can be found in [here][google_play_services_strip].
 You should be careful and make sure that you have functional jar with selected subset of functionalities after jar
@@ -84,7 +84,7 @@ wearable=false
 
 #### 3. Copy Google Play Services resouces folder
 
-As part of your Android SDK folder (where you found google-play-services.jar) you will also find Google Play 
+As part of your Android SDK folder (where you found **google-play-services.jar**) you will also find Google Play 
 Services library resources folder which should also be copied to `<REPO_ROOT_FOLDER>/build/android` folder under
 name `google-play-services-res`. You can find this folder called `res` in
 `ANDROID_SDK_FOLDER/extras/google/google_play_services/libproject/google_play_services_lib` folder.
@@ -166,7 +166,7 @@ Current state of this current repository is adjusted to fit needs of [adjust Ado
 We tried to make Google Play Services ANE generation process as customizable as possible so that everyone can make
 ANE which fits their needs. Also, we wanted to give a starting point for people to see one way of how it's possible 
 to use Google Play Services library directly from ActionScript. We encourage you to use this repository and improve
-ActionScript interface according to your needs and to your needs and to help us grow that API so that users can
+ActionScript interface according to your needs and to help us grow that API so that users can
 use as much of Google Play Services library functionalities as possible in their Flash Mobile apps.
 
 [example]: https://github.com/adjust/gps_ane_builder/tree/development/SampleApp
@@ -179,6 +179,8 @@ use as much of Google Play Services library functionalities as possible in their
 [google_play_services_strip]: https://gist.github.com/dextorer/a32cad7819b7f272239b
 [adjustgps_jar_native_lib]: https://github.com/adjust/gps_ane_builder/blob/development/src/extension.xml#L7
 [adjust_adobe_air_sdk]: https://github.com/adjust/adobe_air_sdk/
+[getid_api_ref]: https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient.Info.html#getId()
+[islimitadtrackingenabled_api_ref]: https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient.Info.html#isLimitAdTrackingEnabled()
 
 ## License
 
