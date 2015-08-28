@@ -1,8 +1,8 @@
 ## Summary
 
 This is Google Play Services ANE Builder of adjust™. This tool is designed to generate Google Play Services ANE
-file which can later be used by adjust SDK as part of Adobe AIR mobile app or by developers to get access to
-Google Play Services library functionalities from ActionScript.
+file which can later be used by [adjust Adobe AIR SDK][adjust_adobe_air_sdk] as part of Flash mobile app or by
+developers in general to get access to Google Play Services library functionality from ActionScript.
 
 ## Example app
 
@@ -35,7 +35,7 @@ of the cloned repository folder. After this, you can use this ANE file in your F
 #### 1. Intro
 
 Purpose of this Google Play Services ANE Builder is to allow users to make their custom ANE versions depening on
-their needs. Initial version of this repository makes ANE which contains just `Mobile Ads` part of Google Play
+their needs. Initial version of this repository creates ANE which contains just `Mobile Ads` part of Google Play
 Services library because that's the only part needed by `adjust SDK`. More about Google Play Services library 
 content can be read in [here in Table 1][google_play_services_lib_parts].
 
@@ -84,15 +84,15 @@ wearable=false
 
 #### 3. Copy Google Play Services resouces folder
 
-As part of your Android SDK folder (where you found **google-play-services.jar**) you will also find Google Play 
-Services library resources folder which should also be copied to `<REPO_ROOT_FOLDER>/build/android` folder under
-name `google-play-services-res`. You can find this folder called `res` in
+As part of your Android SDK folder you will also find Google Play  Services library resources folder which should
+also be copied to `<REPO_ROOT_FOLDER>/build/android` folder under name `google-play-services-res`. You can find 
+this folder called `res` in 
 `ANDROID_SDK_FOLDER/extras/google/google_play_services/libproject/google_play_services_lib` folder.
 
 ![][google_play_services_res]
 
-This folder is important for later integration in app, because `AndroidManifest.xml` should define version number 
-of Google Play Services library being used. This is done by adding following lines of code as part of
+This folder is important for later integration in app, because app's `AndroidManifest.xml` should define version
+number  of Google Play Services library being used. This is done by adding following lines of code as part of
 `<application>` tag body in `AndroidManifest.xml`:
 
 ```xml
@@ -122,6 +122,17 @@ directly in their app's ActionScript classes.
 
 Folder named `java` in root folder of this repository is the place where we keep all of our Java files. These
 files are used to build `AdjustGPS.jar` which is actually [native library][adjustgps_jar_native_lib] used for ANE.
+In oder to build it properly, you will need presence of `google-play-services.jar` and `FlashRuntimeExtensions.jar`.
+This is being buit automatically with our Makefile, but like described in Makefile comments, we're actually keeping
+these Java files as part of Eclipse project where we edit them with presence of needed jar files thus enabling 
+syntax highlighting for easier development. Our project is basically `google-play-services_lib` project from 
+Android SDK folder where we just added our Java classes.
+
+![][gps_java_eclipse_project]
+
+After making all changes in here, Makefile copies these files into `java` folder located in root directory of
+repository folder before building `AdjustGPS.jar`.
+
 At this moment, we have exposed only two methods from Google Play Services library (Mobile Ads part):
 
 - [getId()][getid_api_ref]
@@ -156,18 +167,16 @@ public class Main extends Sprite implements IAdjustGPS {
 
 As you noticed in this example, for each call made, you will get response in corresponding callback. This is done
 like this because execution of these methods (and probably many other from Google Play Services library) can't be
-executed in main app thread. That's why entire bridging mecahnism is made to be executed in background thread in
-order to get information from Google Play Services library and answers are sent via corresponding callbacks for 
-each call.
+executed in main app thread. That's why calls to Google Play Services library methods are executed in background thread and answers are sent back to app via corresponding callbacks.
 
 #### 5. Final thoughts
 
-Current state of this current repository is adjusted to fit needs of [adjust Adobe AIR SDK][adjust_adobe_air_sdk].
-We tried to make Google Play Services ANE generation process as customizable as possible so that everyone can make
-ANE which fits their needs. Also, we wanted to give a starting point for people to see one way of how it's possible 
-to use Google Play Services library directly from ActionScript. We encourage you to use this repository and improve
-ActionScript interface according to your needs and to help us grow that API so that users can
-use as much of Google Play Services library functionalities as possible in their Flash Mobile apps.
+Current state of this repository is adjusted to fit needs of [adjust Adobe AIR SDK][adjust_adobe_air_sdk]. We tried
+to make Google Play Services ANE generation process as customizable as possible so that everyone can make ANE which
+fits their needs. Also, we wanted to give a starting point for people to see one way of how it's possible to use
+Google Play Services library directly from ActionScript. We encourage you to use this repository and improve
+ActionScript interface according to your needs and help us grow ActionScript API so that users can use as much of
+Google Play Services library functionality as possible in their Flash Mobile apps.
 
 [example]: https://github.com/adjust/gps_ane_builder/tree/development/SampleApp
 [adobe_air_sdk]: http://www.adobe.com/devnet/air/air-sdk-download.html
@@ -176,6 +185,7 @@ use as much of Google Play Services library functionalities as possible in their
 [google_play_services_lib_parts]: https://developers.google.com/android/guides/setup
 [google_play_services_jar]: https://raw.github.com/adjust/adjust_sdk/master/Resources/air/google_play_services_jar.png
 [google_play_services_res]: https://raw.github.com/adjust/adjust_sdk/master/Resources/air/google_play_services_res.png
+[gps_java_eclipse_project]: https://raw.github.com/adjust/adjust_sdk/master/Resources/air/gps_java_eclipse_project.png
 [google_play_services_strip]: https://gist.github.com/dextorer/a32cad7819b7f272239b
 [adjustgps_jar_native_lib]: https://github.com/adjust/gps_ane_builder/blob/development/src/extension.xml#L7
 [adjust_adobe_air_sdk]: https://github.com/adjust/adobe_air_sdk/
