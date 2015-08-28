@@ -1,3 +1,26 @@
+# Before you run this Makefile, PLEASE READ THIS.
+#
+# Please set environment variables used below:
+#
+# AIR_SDK_PATH = Path to your Adobe AIR SDK folder
+# JAVA_6_PATH = Path to your JDK 1.6.0 folder (current GPS ANE builder tested with 1.6.0)
+# ANDROID_SDK_ROOT = Path to your Android SDK folder
+#
+# Note about ANDROID_JAR
+#
+# ANDROID_JAR = Path to android.jar which is part of Android SDK
+#
+# This is currently set to android.jar which is part of Android API 19 and AdjustGPS.jar is built with it.
+# Feel free to use API level of your choice.
+#
+# Note about JAVA_FILES
+#
+# JAVA_FILES = Path to your Java source files used for building AdjustGPS.jar
+#
+# This is currently set to Ecliplse project which includes google-play-services.jar and FlashRuntimeExtensions.jar
+# on our local machine where we edit Java source files in order to get proper syntax highlighting.
+# You can, of course, choose to edit your Java source files as you wish and keep them where ever you want.
+
 ADT = $(AIR_SDK_PATH)/bin/adt
 COMPC = $(AIR_SDK_PATH)/bin/compc
 JAR = $(JAVA_6_PATH)/bin/jar
