@@ -2,9 +2,13 @@
 *.swf
 *.swcout
 out
-build
 *.ane
 gen
 .idea
 *.iml
 bin/
+
+*.class
+
+# Exceptions
+!SampleApp/*.iml
