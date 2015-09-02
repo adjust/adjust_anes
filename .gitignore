@@ -9,3 +9,6 @@ gen
 bin/
 
 *.class
+
+# Exceptions
+!SampleApp/*.iml
