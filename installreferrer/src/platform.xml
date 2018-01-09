@@ -1,0 +1,5 @@
+<platform xmlns="http://ns.adobe.com/air/extension/13.0">
+    <packagedDependencies>
+        <packagedDependency>install-referrer.jar</packagedDependency>
+    </packagedDependencies>
+</platform>

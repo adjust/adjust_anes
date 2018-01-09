@@ -11,4 +11,6 @@ bin/
 *.class
 
 # Exceptions
-!SampleApp/*.iml
+*.ane
+*.class
+*.swp
